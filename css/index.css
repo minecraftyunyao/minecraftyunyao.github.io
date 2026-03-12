@@ -5645,7 +5645,7 @@ figure.highlight pre .javascript .function {
   top: calc(50% - 7px);
   left: 0;
   color: #f47466;
-  content: '\f0c1';
+  content: '\f6d5';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -8376,6 +8376,138 @@ blockquote.pullquote.right {
     0 0 8px rgba(0, 191, 255, 0.8),
     0 0 16px rgba(0, 191, 255, 0.4)
     !important;
+}
+
+/* ========================================
+   文章页 H1-H6 标题 先跳动后晃动 动画效果
+   ======================================== */
+/* 变量定义 */
+:root {
+  /* 动画速度（调整为适配跳动+晃动的总时长） */
+  --animation-speed-normal: 3s;   /* 正常状态总时长 */
+  --animation-speed-hover: 4s;    /* 悬停状态总时长 */
+  
+  /* 风车颜色配置（保留原有颜色） */
+  --h1-color: #ef50a8;
+  --h2-color: #fb7061;
+  --h3-color: #ffbf00;
+  --h4-color: #a9e000;
+  --h5-color: #57c850;
+  --h6-color: #5ec1e0;
+  
+  /* 风车大小配置（保留原有尺寸） */
+  --h1-size: 1.3rem;
+  --h2-size: 1.1rem;
+  --h3-size: 0.95rem;
+  --h4-size: 0.8rem;
+  --h5-size: 0.7rem;
+  --h6-size: 0.66rem;
+  
+  /* 风车位置微调（保留原有位置） */
+  --h1-left: -1.55rem;
+  --h1-top: -0.23rem;
+  --h2-left: -1.35rem;
+  --h2-top: -0.12rem;
+  --h3-left: -1.22rem;
+  --h3-top: -0.09rem;
+  --h4-left: -1.05rem;
+  --h4-top: -0.09rem;
+  --h5-left: -0.9rem;
+  --h5-top: 0;
+  --h6-left: -0.9rem;
+  --h6-top: 0;
+}
+
+/* 核心动画：先跳动 + 后晃动 */
+@keyframes bounce-then-shake {
+  /* 0%-40%：跳动阶段（两次轻跳，更自然） */
+  0% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(0, -6px) rotate(0deg); } /* 第一次上跳 */
+  20% { transform: translate(0, 0) rotate(0deg); }    /* 回落 */
+  30% { transform: translate(0, -3px) rotate(0deg); } /* 第二次轻跳 */
+  40% { transform: translate(0, 0) rotate(0deg); }    /* 回落 */
+  
+  /* 40%-100%：晃动阶段（左右小幅度旋转，模拟晃动） */
+  50% { transform: rotate(-6deg); }
+  60% { transform: rotate(6deg); }
+  70% { transform: rotate(-4deg); }
+  80% { transform: rotate(4deg); }
+  90% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+/* 基础伪元素样式（替换动画为新的跳动+晃动） */
+#content-inner.layout :is(h1, h2, h3, h4, h5, h6)::before {
+  animation: bounce-then-shake var(--animation-speed-normal) ease-in-out infinite;
+  display: inline-block; /* 确保transform生效 */
+  transition: color 0.3s ease; /* 保留颜色过渡 */
+  /* 新增：固定伪元素基线，避免跳动时错位 */
+  vertical-align: middle;
+}
+
+/* 各级标题伪元素样式（保留原有颜色/尺寸/位置） */
+#content-inner.layout h1::before {
+  color: var(--h1-color);
+  margin-left: var(--h1-left);
+  font-size: var(--h1-size);
+  margin-top: var(--h1-top);
+}
+
+#content-inner.layout h2::before {
+  color: var(--h2-color);
+  margin-left: var(--h2-left);
+  font-size: var(--h2-size);
+  margin-top: var(--h2-top);
+}
+
+#content-inner.layout h3::before {
+  color: var(--h3-color);
+  margin-left: var(--h3-left);
+  font-size: var(--h3-size);
+  margin-top: var(--h3-top);
+}
+
+#content-inner.layout h4::before {
+  color: var(--h4-color);
+  margin-left: var(--h4-left);
+  font-size: var(--h4-size);
+  margin-top: var(--h4-top);
+}
+
+#content-inner.layout h5::before {
+  color: var(--h5-color);
+  margin-left: var(--h5-left);
+  font-size: var(--h5-size);
+  margin-top: var(--h5-top);
+}
+
+#content-inner.layout h6::before {
+  color: var(--h6-color);
+  margin-left: var(--h6-left);
+  font-size: var(--h6-size);
+  margin-top: var(--h6-top);
+}
+
+/* Hover效果（保留颜色变化，调整动画时长） */
+#content-inner.layout :is(h1, h2, h3, h4, h5, h6):hover {
+  color: var(--theme-color);
+}
+
+#content-inner.layout :is(h1, h2, h3, h4, h5, h6):hover::before {
+  color: var(--theme-color);
+  animation-duration: var(--animation-speed-hover); /* 悬停时动画变慢，效果更明显 */
+}
+
+/* 响应式优化（保留原有尺寸适配） */
+@media (max-width: 768px) {
+  :root {
+    --h1-size: 1.1rem;
+    --h2-size: 0.95rem;
+    --h3-size: 0.85rem;
+    --h4-size: 0.75rem;
+    --h5-size: 0.65rem;
+    --h6-size: 0.6rem;
+  }
 }
 .search-dialog {
   position: fixed;
