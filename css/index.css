@@ -9372,18 +9372,16 @@ span.categoryBar-list-descr {
   animation: spin 1s linear infinite;
 }
 @media screen and (max-width: 768px) {
-  #local-search .search-dialog .search-result-list {
-    max-height: calc(var(--search-height) - 200px) !important;
+  #algolia-search .search-dialog .ais-Hits-list {
+    min-height: calc(var(--search-height) - 245px);
   }
 }
-#local-search #local-search-stats .search-result-stats {
-  text-align: left;
+#algolia-search .search-dialog #algolia-info .algolia-poweredBy {
+  float: right;
+  padding-top: 2px;
 }
-#local-search .search-keyword {
-  font-weight: 600;
-}
-#local-search #loading-database ~ * {
-  visibility: hidden;
+#algolia-search .search-dialog #algolia-info .algolia-poweredBy svg {
+  height: 1.1em;
 }
 @-moz-keyframes spin {
   to {
