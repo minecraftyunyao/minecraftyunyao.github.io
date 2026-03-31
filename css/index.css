@@ -9162,7 +9162,25 @@ div#quit-board.fixedcomment {
     box-shadow: 0 0 5px #800080;
     transition:0.3s;
 }
-
+@font-face {
+  font-family: 'minecrafttitle';
+  font-display: swap;
+  src: url('/fonts/minecrafttitle.ttf') format("truetype");  
+}
+h1#site-title {
+  font-family: 'minecrafttitle', sans-serif;
+}
+span.site-name {
+  font-family: 'minecrafttitle', sans-serif;
+}
+@font-face {
+  font-family: 'minecraftzhong';
+  font-display: swap;
+  src: url('/fonts/minecraftzhong.ttf') format("truetype");  
+}
+div.author-info-name {
+  font-family: 'minecraftzhong', sans-serif;
+}
 .search-dialog {
   position: fixed;
   top: 10%;
