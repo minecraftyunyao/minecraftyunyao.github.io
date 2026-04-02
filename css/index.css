@@ -8514,97 +8514,18 @@ blockquote.pullquote.right {
   background: transparent !important;
 }
 
-
-/* 侧边栏个人信息卡片 - 明亮版科幻Minecraft风格动态渐变 */
-#aside-content > .card-widget.card-info {
-  /* 明亮版MC科幻渐变色（青金石蓝、钻石青、荧光绿、红石红、紫晶色、下界金） */
-  background: linear-gradient(
-    -45deg,
-    #5b86e5, /* 亮青金石蓝（MC经典+明亮） */
-    #36d1dc, /* 亮钻石青（科幻霓虹） */
-    #7ed321, /* 亮荧光草绿（MC方块感） */
-    #ff5252, /* 亮红石红（鲜艳对比） */
-    #b39ddb, /* 亮紫晶色（柔和科幻） */
-    #ffb74d  /* 亮下界金（暖调提亮） */
-  );
-  /* 更通透的霓虹阴影，贴合明亮色调 */
-  box-shadow: 0 0 10px rgba(54, 209, 220, 0.7), 0 0 15px rgba(255, 82, 82, 0.4);
-  position: relative;
-  background-size: 600% 600%;
-  -webkit-animation: Gradient 12s ease infinite;
-  -moz-animation: Gradient 12s ease infinite;
-  animation: Gradient 12s ease infinite !important;
+/* 个人信息卡片背景图 */
+[data-theme="light"] #aside-content > .card-widget.card-info {
+  background-image: url(https://api.fis.ink/mc);
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+  background-size: 100%;
 }
-
-/* 渐变动画关键帧（速度微调，过渡更丝滑） */
-@-webkit-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 25% 75%; /* 新增中间帧，渐变更自然 */
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 75% 25%; /* 新增中间帧，避免卡顿 */
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 25% 75%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 75% 25%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 25% 75%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 75% 25%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* 黑夜模式适配（明亮但不刺眼） */
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background: linear-gradient(
-    -45deg,
-    #7ba0ff, /* 暗黑亮青金石 */
-    #4dd0e1, /* 暗黑亮钻石青 */
-    #9ccc65, /* 暗黑亮荧光绿 */
-    #ff7070, /* 暗黑亮红石红 */
-    #d1c4e9, /* 暗黑亮紫晶 */
-    #ffcc80  /* 暗黑亮下界金 */
-  );
-  box-shadow: 0 0 10px rgba(77, 208, 225, 0.6), 0 0 15px rgba(255, 112, 112, 0.3);
-  background-size: 600% 600%;
-  -webkit-animation: Gradient 12s ease infinite;
-  -moz-animation: Gradient 12s ease infinite;
-  animation: Gradient 12s ease infinite !important;
+  background-image: url(https://api.fis.ink/mc);
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+  background-size: 100%;
 }
 
 /* Follow me按钮 - 明亮版科幻Minecraft风格 */
