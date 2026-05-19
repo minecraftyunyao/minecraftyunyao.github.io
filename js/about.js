@@ -25,7 +25,7 @@ function initTypewriter() {
   const el = document.getElementById('about-typewriter');
   if (!el) return;
 
-  const text = '遇事不决，可问春风';
+  const text = '天阔坰无边，声起是昦坰。';
   let i = 0, deleting = false;
   let timer;
 
